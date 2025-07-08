@@ -20,30 +20,20 @@ npm install -D typescript
 tsc --init
 ```
 
-### dependencies
+## dependencies
 
 ```bash
 npm install express mongoose zod jsonwebtoken cors dotenv
 ```
 
-### devDependencies
+## devDependencies
 
 ```bash
 npm install -D ts-node-dev @types/express @types/cors @types/dotenv @types/jsonwebtoken
 ```
 
-```bash
-npm init -y
-```
+## Run Script Add
 
 ```bash
-npm init -y
-```
-
-```bash
-npm init -y
-```
-
-```bash
-npm init -y
+ "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
 ```
