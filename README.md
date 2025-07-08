@@ -37,3 +37,42 @@ npm install -D ts-node-dev @types/express @types/cors @types/dotenv @types/jsonw
 ```bash
  "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
 ```
+
+## Eslint Install
+
+```bash
+ npm install --save-dev eslint @eslint/js typescript typescript-eslint
+```
+
+## Run Script Add
+
+```bash
+ npx eslint ./src
+```
+
+## eslint.config.mjs
+
+```bash
+// @ts-check
+
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+
+export default tseslint.config(
+  eslint.configs.recommended,
+//   tseslint.configs.recommended,
+  tseslint.configs.strict,
+  tseslint.configs.stylistic,
+  {
+    rules:{
+        "no-console":"warn"
+    }
+  }
+);
+```
+
+## Http status code add
+
+```bash
+ npm install http-status-codes
+```
