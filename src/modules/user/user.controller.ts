@@ -1,27 +1,38 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Request, Response } from "express";
-import httpStatus from "http-status-codes";
-import { User } from "./user.model";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-const createUser = async (req: Request, res: Response) => {
-  try {
-    const { name, email } = req.body;
-    const user = await User.create({
-      name,
-      email,
-    });
-    res.status(httpStatus.CREATED).json({
-      message: "User Created  Succesfully",
-      user,
-    });
-  } catch (err: any) {
-    console.log(err);
-    res.status(httpStatus.BAD_REQUEST).json({
-      message: `Something Went Wrong !! ${err.message}`,
+import { NextFunction, Request, Response } from "express";
+import httpStatus from "http-status-codes";
+import { catchAsync } from "../../utits/catchAsync";
+import { sendResponse } from "../../utits/sendResponse";
+import { userServices } from "./user.service";
+
+const createUser = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const user = await userServices.createUser(req.body);
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "Users created Successfully",
+      data: user,
     });
   }
-};
+);
+
+const getAllUsers = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const users = await userServices.getAllUsers();
+
+    sendResponse(res, {
+      statusCode: httpStatus.CREATED,
+      success: true,
+      message: "All Users Retrievd Successfully",
+      data: users.data,
+      meta: users.meta,
+    });
+  }
+);
 
 export const UserControllers = {
   createUser,
+  getAllUsers,
 };
