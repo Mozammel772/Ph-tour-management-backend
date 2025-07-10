@@ -76,3 +76,13 @@ export default tseslint.config(
 ```bash
  npm install http-status-codes
 ```
+
+## Password Hashing
+
+```bash
+npm i bcryptjs
+```
+
+```bash
+npm i -D @types/bcryptjs
+```
