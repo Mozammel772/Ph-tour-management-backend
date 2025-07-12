@@ -86,3 +86,13 @@ npm i bcryptjs
 ```bash
 npm i -D @types/bcryptjs
 ```
+
+## cookie-parser
+
+```bash
+npm install cookie-parser
+```
+
+```bash
+npm i -D @types/cookie-parser
+```
