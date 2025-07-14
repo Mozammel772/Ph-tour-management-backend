@@ -96,3 +96,19 @@ npm install cookie-parser
 ```bash
 npm i -D @types/cookie-parser
 ```
+
+## Google Authentication Passport Js
+
+```bash
+npm install passport
+npm install passport-local
+npm install passport-google-oauth20
+ npm i express-session
+```
+
+```bash
+npm i -D @types/passport
+npm i -D @types/passport-local
+npm i -D @types/passport-google-oauth20
+npm i -D @types/express-session
+```
